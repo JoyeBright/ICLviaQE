@@ -88,7 +88,7 @@ def calculate_yules_k(tokens):
     m2 = sum([freq ** 2 for freq in freq_dist.values()])
     return 10000 * (m2 - m1) / (m1 ** 2)
 
-# Beam Search Functions
+# Search Functions
 def analyze_line(line, src, ind):
     tokens = preprocess_mixed_language_text(line)
     return {
@@ -103,7 +103,7 @@ def analyze_line(line, src, ind):
 def tokenize_QE_function(input, target, tokenizer_QE, device):
     return tokenizer_QE(input, target, padding='max_length', truncation='longest_first', max_length=250, return_tensors='pt').to(device)
 
-def beam_search(device, model, tokenizer, tokenizer_QE, model_QE, src, target, cols, ind):
+def search(device, model, tokenizer, tokenizer_QE, model_QE, src, target, cols, ind):
     beam, prompt, itr, patience_counter = [("", 0.0, "")], "", 0, 0
     best_bleu_score, selected_prompt_set = 0.0, set()
 
@@ -156,6 +156,7 @@ model_QE = XLMRobertaForSequenceClassification.from_pretrained("QE/IT_BLEU_3/che
 # Load Data
 my_dict = {"Sim": read_csv_to_dict(f"{data_dir}/{domain}_ext/Similar{k}_1.csv"),
            "Dis": read_csv_to_dict(f"{data_dir}/{domain}_ext/Dissimilar8_1.csv")}
+
 src = read_file(f"{data_dir}/{domain}/{split}.{src_lang}")
 tgt = read_file(f"{data_dir}/{domain}/{split}.{tgt_lang}")
 cols = [f'top{j+1}' if j % 2 == 0 else f'top{j+1}_trg' for j in range(k * 2)]
@@ -171,7 +172,7 @@ for ind in range(len(src)):
     tracker.epoch_start()
 
     iteration_start_time = time.time()
-    beam = beam_search(device, model, tokenizer, tokenizer_QE, model_QE, src, tgt, cols, ind)
+    beam = search(device, model, tokenizer, tokenizer_QE, model_QE, src, tgt, cols, ind)
     iteration_elapsed_time = time.time() - iteration_start_time
 
     best_prompt, best_score, best_output = max(beam, key=lambda x: x[1])
