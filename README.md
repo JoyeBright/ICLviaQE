@@ -4,7 +4,11 @@ This repository contains the data, code, and model required to replicate the res
 # Baseline Models
 **Random**: random_file.py -> run_generation.py </br>
 **Task-level**: create_task_file.py -> run_generation.py </br>
-**BM25**: create_BM25_file.py
+**BM25**: create_BM25_file.py </br>
+**R-BM25**: implementation is available at https://github.com/sweta20/inContextMT
+
+# Our methodology
+
 
 ## Authors
 
