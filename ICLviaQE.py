@@ -214,7 +214,7 @@ def beam_search (device, model, tokenizer, tokenizer_QE, model_QE, src, target, 
             "Yule's K": 0,
             'Length': 0,
             'Similarity': 1, 
-            'unigram': 1,
+            'unigram': 0,
             'bigram': 0,
         }
         # Calculate the combined score for each prompt
