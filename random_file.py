@@ -13,7 +13,7 @@ domain = 'it'
 model_name = 'XGLM'
 
 
-eval_src, eval_tgt = get_data(domain, 'de', 'en', "test", '../datasets')
+eval_src, eval_tgt = get_data(domain, 'de', 'en', "dev", '../datasets')
 train_src, train_tgt = get_data(domain, 'de', 'en', "train", '../datasets')
 
 
