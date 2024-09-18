@@ -1,6 +1,6 @@
 # ICLviaQE
 
-This repository contains the data, code, and models required to replicate the experiments from our paper: **"Guiding In-Context Learning of LLMs through Quality Estimation for Machine Translation."**
+This repository contains the data, code, and models required to replicate the experiments from our paper: **"Guiding In-Context Learning of LLMs through Quality Estimation for Machine Translation."** The paper has been accepted to AMTA 2024, but has not been published yet.
 
 ## Overview
 
