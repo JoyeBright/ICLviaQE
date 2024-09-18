@@ -8,7 +8,7 @@ Below is a visual summary of our methodology.
 
 <img src="/Overview.png" width="700px" alt="Methodology Overview" title="Our Methodology">
 
-For a detailed explanation of our approach, check out the [YouTube presentation of the paper](https://www.youtube.com/watch?v=CkVs-XV0LW0&ab_channel=JavadPourmostafa).
+📽️ [Watch the YouTube presentation of our paper](https://www.youtube.com/watch?v=CkVs-XV0LW0&ab_channel=JavadPourmostafa)
 
 ## Methodology Breakdown
 
@@ -22,7 +22,7 @@ For a detailed explanation of our approach, check out the [YouTube presentation 
 To run Stage 2, you'll need a QE model, which we've shared on the Hugging Face Hub. Access it here:  
 👉 [ICLviaQE Model on Hugging Face](https://huggingface.co/joyebright/ICLviaQE/tree/main)
 
-To prioritize translation pairs with unigram overlaps with the source, set the unigram weight to 1 (default is 0). Note that other weights from our analysis not discussed in the paper should be ignored.
+To prioritize translation pairs with unigram overlaps with the source, set the unigram weight to 1 (default is 0) in `ICLviaQE.py`. Note that other weights from our analysis not discussed in the paper should be ignored.
 
 ## Baselines
 
