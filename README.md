@@ -5,6 +5,7 @@ This repository contains the data, code, and model required to replicate the res
 <img src="/Overview.png" width="700px" title="hover text">
 
 1. Finding relevant translation pairs from the training set per source text: use BM25.py
+2. 
 
 # Baselines
 **Random**: random_file.py -> run_generation.py </br>
