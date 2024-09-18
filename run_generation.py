@@ -9,6 +9,8 @@ import evaluate
 import json
 from utils import *
 
+
+# Set the domain
 domain = 'it'
 
 
@@ -22,6 +24,8 @@ model.half()
 model.to(device)
 model.eval()
 
+# Set the best number obtained (from either random or task-level)
+# Don't forget to change the output name accordingly
 BestNumber = 369713
 k = 1
 print("best number: ", BestNumber)
