@@ -1,4 +1,5 @@
 # ICLviaQE
+
 This repository contains the data, code, and models required to replicate the experiments from our paper: **"Guiding In-Context Learning of LLMs through Quality Estimation for Machine Translation."**
 
 ## Overview
@@ -6,6 +7,8 @@ This repository contains the data, code, and models required to replicate the ex
 Below is a visual summary of our methodology.
 
 <img src="/Overview.png" width="700px" alt="Methodology Overview" title="Our Methodology">
+
+For a detailed explanation of our approach, check out the [YouTube presentation of the paper](https://www.youtube.com/watch?v=CkVs-XV0LW0&ab_channel=JavadPourmostafa).
 
 ## Methodology Breakdown
 
@@ -19,8 +22,9 @@ Below is a visual summary of our methodology.
 To run Stage 2, you'll need a QE model, which we've shared on the Hugging Face Hub. Access it here:  
 👉 [ICLviaQE Model on Hugging Face](https://huggingface.co/joyebright/ICLviaQE/tree/main)
 
-## Baselines
+To prioritize translation pairs with unigram overlaps with the source, set the unigram weight to 1 (default is 0). Note that other weights from our analysis not discussed in the paper should be ignored.
 
+## Baselines
 
 - **Random**: Generates translations by randomly selecting examples.  
   Code: [`random_file.py`](random_file.py) -> [`run_generation.py`](run_generation.py)
@@ -43,9 +47,9 @@ To run any of the stages or baselines, follow the instructions provided in the r
 
 ## Authors
 
-- **Javad Pourmostafa**  - [Email](mailto:j.pourmostafa@tilburguniversity.edu), [Website](https://javad.pourmostafa.me)
+- **Javad Pourmostafa** - [Email](mailto:j.pourmostafa@tilburguniversity.edu), [Website](https://javad.pourmostafa.me)
 - **Dimitar Shterionov** - [Email](mailto:d.shterionov@tilburguniversity.edu), [Website](https://ilk.uvt.nl/~shterion/)
-- **Pieter Spronck**     - [Email](mailto:p.spronck@tilburguniversity.edu), [Website](https://www.spronck.net/)
+- **Pieter Spronck** - [Email](mailto:p.spronck@tilburguniversity.edu), [Website](https://www.spronck.net/)
 
 ## Citation
 
