@@ -3,7 +3,7 @@ This repository contains the data, code, and models required to replicate the ex
 
 ## Overview
 
-Our method guides large language models (LLMs) in In-Context Learning (ICL) through Quality Estimation (QE), improving machine translation accuracy by selecting higher-quality translations from context. Below is a visual summary of our methodology.
+Below is a visual summary of our methodology.
 
 <img src="/Overview.png" width="700px" alt="Methodology Overview" title="Our Methodology">
 
