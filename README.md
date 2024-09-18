@@ -15,7 +15,7 @@ Below is a visual summary of our methodology.
 1. **Relevant Translation Pair Selection**: For each source text, relevant translation pairs are selected from the training set using BM25.  
    Code: [`BM25.py`](BM25.py)
    
-2. **Selection, Translation, and Quality Estimation**:  
+2. **Selection, Translation, and Estimation**:  
    This step involves performing the selection, translation, and quality estimation of the target outputs.  
    Code: [`ICLviaQE.py`](ICLviaQE.py)
 
