@@ -2,8 +2,9 @@
 This repository contains the data, code, and model required to replicate the results of the experiments in my paper, "Guiding In-Context Learning of LLMs through Quality Estimation for Machine Translation."
 
 # Our methodology
+<img src="/Overview.png" width="700px" title="hover text">
 
-1. 
+1. Finding relevant translation pairs from the training set per source text: use BM25.py
 
 # Baselines
 **Random**: random_file.py -> run_generation.py </br>
