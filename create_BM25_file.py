@@ -35,13 +35,13 @@ my_dict = {src_lang: read_file(f"{data_dir}/{domain}/train.{src_lang}"),
            tgt_lang: read_file(f"{data_dir}/{domain}/train.{tgt_lang}")}
 
 # Carbon tracker
-# tracker = CarbonTracker(epochs=len(my_dict[src_lang]), monitor_epochs=-1, epochs_before_pred = -1, verbose=2, components="gpu", log_dir=f'decoding/{domain},')
+tracker = CarbonTracker(epochs=len(my_dict[src_lang]), monitor_epochs=-1, epochs_before_pred = -1, verbose=2, components="gpu", log_dir=f'decoding/{domain},')
 
 # Record the start time
-# start_time = time.time()
+start_time = time.time()
 
-#tracker starts
-# tracker.epoch_start()
+# tracker starts
+tracker.epoch_start()
 
 for lang in [src_lang, tgt_lang]:
     mt_tok = MosesTokenizer(lang=lang) 
@@ -78,8 +78,8 @@ for ind in tqdm(range(len(src))):
     output = model.generate(input_ids, max_new_tokens=200, do_sample=False)
     final_output = tokenizer.decode(output[0, input_ids.shape[1]: ], skip_special_tokens=True)
     predictions.append(final_output)
-    # with open(f"{domain}{'/BM25-Domain-XGLM-7.5b-'}{'0+'}{k}.new", "a") as f:
-    #     f.write(final_output + "\n")
+    with open(f"{domain}{'/BM25-Domain-XGLM-7.5b-'}{'0+'}{k}", "a") as f:
+         f.write(final_output + "\n")
     print("----")  
     print(prompts[ind])
     print("iterator: ", ind)
@@ -87,3 +87,25 @@ for ind in tqdm(range(len(src))):
     print("actual label: ", tgt[ind])
     outputs = get_outputs(predictions, truncate=True, max_length=lengths[:ind+1])
     print("bleu score so far: ", score(outputs, tgt[:ind+1]))
+
+
+with open(f"{domain}{'/BM25-Domain-XGLM-7.5b-'}{'0+'}{k}.new.{'bleu'}", "w") as f:
+    f.write(str(score(outputs, tgt)))
+
+# tracker ends
+tracker.epoch_end()
+
+# Record the end time
+end_time = time.time()
+
+# Calculate the total elapsed time
+total_elapsed_time = end_time - start_time
+
+# Save the total elapsed time
+print(f"Total Elapsed Time: {total_elapsed_time} seconds")
+output_file_path = f"{domain}{'/BM25-Domain-XGLM-7.5b-'}{'0+'}{k}.new.TT"
+with open(output_file_path, "a") as output_file:
+    output_file.write(f"{total_elapsed_time}\n")
+
+# tracker stops
+tracker.stop()
