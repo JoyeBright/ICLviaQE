@@ -318,9 +318,9 @@ model.eval()
 
 # QE Model
 
-tokenizer_QE = AutoTokenizer.from_pretrained("QE/IT_BLEU_3/checkpoint-30000", 
+tokenizer_QE = AutoTokenizer.from_pretrained("joyebright/ICLviaQE", 
                                              do_lower_case=False, normalization=True)
-model_QE = XLMRobertaForSequenceClassification.from_pretrained("QE/IT_BLEU_3/checkpoint-30000",
+model_QE = XLMRobertaForSequenceClassification.from_pretrained("joyebright/ICLviaQE",
                                                                 num_labels=1, hidden_dropout_prob=0.1).to(device)
 
 model_QE.eval()
