@@ -78,7 +78,7 @@ for it in range(num_itrs):
         if model_name=='flan-t5':
             final_output = tokenizer.decode(output[0], skip_special_tokens=True)
         predictions.append(final_output)
-        with open(f"{domain}{'/random-'}{model_name}{'-7.5b-'}{k}{'+0'}.{it}.new", "a") as f:
+        with open(f"{domain}{'/random-'}{model_name}{'-7.5b-'}{k}{'+0'}.{it}", "a") as f:
             f.write(final_output + "\n")
         print("-------")
         print("trial: ", it, ", iterator in loop: ", i)
@@ -88,7 +88,7 @@ for it in range(num_itrs):
         outputs = get_outputs(predictions, truncate=True, max_length=lengths[:i+1])
         print("bleu score so far: ", score(outputs, eval_tgt[:i+1]))
         # print("sacrebleu score so far: ", score_sacrebleu(outputs, eval_tgt[:j+1]))
-    with open(f"{domain}{'/random-'}{model_name}{'-7.5b-'}{k}{'+0'}.{it}.new.{'bleu'}", "w") as f:
+    with open(f"{domain}{'/random-'}{model_name}{'-7.5b-'}{k}{'+0'}.{it}.{'bleu'}", "w") as f:
             f.write(str(score(outputs, eval_tgt)))
     scores["itr"].append(it) 
     scores["score"].append(score(outputs, eval_tgt)['score'])
@@ -106,7 +106,7 @@ total_elapsed_time = end_time - start_time
 
 # Save the total elapsed time
 print(f"Total Elapsed Time: {total_elapsed_time} seconds")
-output_file_path = f"{domain}{'/random-'}{model_name}{'-7.5b-'}{k}{'+0'}.{it}.new.TT"
+output_file_path = f"{domain}{'/random-'}{model_name}{'-7.5b-'}{k}{'+0'}.{it}.TT"
 with open(output_file_path, "a") as output_file:
     output_file.write(f"{total_elapsed_time}\n")
 
