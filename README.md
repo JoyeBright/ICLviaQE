@@ -1,6 +1,6 @@
 # ICLviaQE
 
-This repository contains the data, code, and models required to replicate the experiments from our paper: **"Guiding In-Context Learning of LLMs through Quality Estimation for Machine Translation."** The paper has been accepted to AMTA 2024, but has not been published yet.
+This repository contains the data, code, and models required to replicate the experiments from our paper: **"Guiding In-Context Learning of LLMs through Quality Estimation for Machine Translation."** The paper has been accepted to AMTA 2024. https://aclanthology.org/2024.amta-research.9/
 
 ## Overview
 
@@ -56,15 +56,21 @@ The quality of output from large language models (LLMs), particularly in machine
 
 ## Citation
 
-Please cite the preprint version of our paper until it is officially published:
-
 ```bibtex
-@misc{sharami2024guidingincontextlearningllms,
-      title={Guiding In-Context Learning of LLMs through Quality Estimation for Machine Translation}, 
-      author={Javad Pourmostafa Roshan Sharami and Dimitar Shterionov and Pieter Spronck},
-      year={2024},
-      eprint={2406.07970},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2406.07970}, 
+@inproceedings{pourmostafa-roshan-sharami-etal-2024-guiding,
+    title = "Guiding In-Context Learning of {LLM}s through Quality Estimation for Machine Translation",
+    author = "Pourmostafa Roshan Sharami, Javad  and
+      Shterionov, Dimitar  and
+      Spronck, Pieter",
+    editor = "Knowles, Rebecca  and
+      Eriguchi, Akiko  and
+      Goel, Shivali",
+    booktitle = "Proceedings of the 16th Conference of the Association for Machine Translation in the Americas (Volume 1: Research Track)",
+    month = sep,
+    year = "2024",
+    address = "Chicago, USA",
+    publisher = "Association for Machine Translation in the Americas",
+    url = "https://aclanthology.org/2024.amta-research.9",
+    pages = "88--101",
+    abstract = "The quality of output from large language models (LLMs), particularly in machine translation (MT), is closely tied to the quality of in-context examples (ICEs) provided along with the query, i.e., the text to translate. The effectiveness of these ICEs is influenced by various factors, such as the domain of the source text, the order in which the ICEs are presented, the number of these examples, and the prompt templates used. Naturally, selecting the most impactful ICEs depends on understanding how these affect the resulting translation quality, which ultimately relies on translation references or human judgment. This paper presents a novel methodology for in-context learning (ICL) that relies on a search algorithm guided by domain-specific quality estimation (QE). Leveraging the XGLM model, our methodology estimates the resulting translation quality without the need for translation references, selecting effective ICEs for MT to maximize translation quality. Our results demonstrate significant improvements over existing ICL methods and higher translation performance compared to fine-tuning a pre-trained language model (PLM), specifically mBART-50.",
 }
